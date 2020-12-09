@@ -26,6 +26,7 @@
 | name             | string     | null: false                    |
 | introduce        | text       | null: false                    |
 | value            | integer    | null: false                    |
+| category_id      | integer    | null: false                    |
 | item_status_id   | integer    | null: false                    |
 | delivery_fee_id  | integer    | null: false                    |
 | shipping_area_id | integer    | null: false                    |

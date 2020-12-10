@@ -32,31 +32,31 @@ describe Item do
       end
 
       it 'カテゴリーが空欄だと登録できない' do
-        @item.category_id = '0'
+        @item.category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it '商品の状態が空欄だと登録できない' do
-        @item.item_status_id = '0'
+        @item.item_status_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Item status can't be blank")
       end
 
       it '配送料の負担が空欄だと登録できない' do
-        @item.delivery_fee_id = '0'
+        @item.delivery_fee_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
       end
 
       it '発送元の地域が空欄だと登録できない' do
-        @item.shipping_area_id = '0'
+        @item.shipping_area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area can't be blank")
       end
 
       it '発送までの日数が空欄だと登録できない' do
-        @item.shipping_day_id = '0'
+        @item.shipping_day_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
@@ -67,8 +67,14 @@ describe Item do
         expect(@item.errors.full_messages).to include('Value is out of setting range')
       end
 
-      it '価格の範囲が、¥300~¥9,999,999以外だと登録できない' do
-        @item.value = '200'
+      it '価格が、10,000,000以上だと登録できない' do
+        @item.value = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Value is out of setting range')
+      end
+
+      it '価格が、300より低いと登録できない' do
+        @item.value = 200
         @item.valid?
         expect(@item.errors.full_messages).to include('Value is out of setting range')
       end

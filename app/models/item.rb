@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :item_status
   belongs_to :delivery_fee
   belongs_to :shipping_area
-  belongs_to :shipping_days
+  belongs_to :shipping_day
 
   belongs_to :user
   has_one_attached :image
@@ -16,7 +16,7 @@ class Item < ApplicationRecord
   validates :item_status_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :delivery_fee_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :shipping_area_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :shipping_days_id, numericality: { other_than: 0, message: "can't be blank" }
+  validates :shipping_day_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
   def was_attached?

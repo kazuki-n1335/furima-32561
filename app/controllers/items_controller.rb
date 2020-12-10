@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
-  
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def item_params
@@ -24,8 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end

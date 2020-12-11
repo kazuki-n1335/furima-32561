@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Prototype.find(params[:id])
+    @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
       redirect_to root_path

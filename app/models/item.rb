@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :name, length: { maximum: 40 }
     validates :introduce, length: { maximum: 1000 }
   end
-  
+
   with_options numericality: { other_than: 0, message: "can't be blank" } do
     validates :category_id
     validates :item_status_id

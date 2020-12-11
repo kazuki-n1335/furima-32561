@@ -74,7 +74,7 @@ describe Item do
       end
 
       it '価格が、300より低いと登録できない' do
-        @item.value = 200
+        @item.value = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Value is out of setting range')
       end

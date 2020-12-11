@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   end
   
   def update
+    @item.valid?
     @item.update(item_params)
     if @item.valid?
       redirect_to root_path

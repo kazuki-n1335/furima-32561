@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     @item.valid?
     if current_user.id == @item.user_id
       @item.update(item_params)
-      if @item.valid?
+      if @item.save
         redirect_to root_path
       else
         render :edit

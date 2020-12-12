@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     if current_user.id == @item.user_id
       @item.update(item_params)
       if @item.save
-        redirect_to root_path
+        redirect_to item_path(@item.id)
       else
         render :edit
       end

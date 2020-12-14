@@ -10,10 +10,10 @@ class UserOrder
   end
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
 
-  belongs_to :user
-  belongs_to :item
 
   def save
+    Order.create(user_id: user.id, item_id: item.id)
+
     Address.create(post_number: post_number, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, telephone_number: telephone_number, user_id: user.id, item_id: item.id)
   end
 end

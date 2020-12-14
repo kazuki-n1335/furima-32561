@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
     @user_order = UserOrder.new
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @user_order = UserOrder.new(order_params)
     if @user_order.valid?
       @user_order.save

@@ -32,13 +32,13 @@ RSpec.describe UserOrder, type: :model do
       it '郵便番号は-無しだと保存できない' do
         @user_order.post_number = '1234567'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Post number is invalid. Include hyphen(-)")
+        expect(@user_order.errors.full_messages).to include('Post number is invalid. Include hyphen(-)')
       end
 
       it '郵便番号は全角数字だと保存できない' do
         @user_order.post_number = '０１２-１２３４'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Post number is invalid. Include hyphen(-)")
+        expect(@user_order.errors.full_messages).to include('Post number is invalid. Include hyphen(-)')
       end
 
       it '都道府県が空欄だと保存できない' do
@@ -68,19 +68,19 @@ RSpec.describe UserOrder, type: :model do
       it '電話番号は-ありだと保存できない' do
         @user_order.telephone_number = '080-1234-5678'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
+        expect(@user_order.errors.full_messages).to include('Telephone number is too long (maximum is 11 characters)')
       end
 
       it '電話番号は12桁以上だと保存できない' do
         @user_order.telephone_number = '080123456789'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
+        expect(@user_order.errors.full_messages).to include('Telephone number is too long (maximum is 11 characters)')
       end
 
       it '電話番号は全角数字だと保存できない' do
         @user_order.telephone_number = '０８０１２３４５６７８'
         @user_order.valid?
-        expect(@user_order.errors.full_messages).to include("Telephone number is invalid. Input full-width numbers.")
+        expect(@user_order.errors.full_messages).to include('Telephone number is invalid. Input full-width numbers.')
       end
     end
   end

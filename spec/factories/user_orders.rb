@@ -7,5 +7,7 @@ FactoryBot.define do
     house_number { Faker::Number.number(digits: 4) }
     building_name { Faker::Games::Pokemon.name }
     telephone_number { Faker::Number.leading_zero_number(digits: 11) }
+    user_id { Faker::Number.between(1, 50) }
+    item_id { Faker::Number.between(1, 50) }
   end
 end

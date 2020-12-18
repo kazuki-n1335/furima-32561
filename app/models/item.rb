@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :introduce, length: { maximum: 1000 }
   end
 
-  with_options numericality: { other_than: 0, message: "can't be blank" } do
+  with_options numericality: { other_than: 0, message: "を入力してください" } do
     validates :category_id
     validates :item_status_id
     validates :delivery_fee_id
@@ -24,7 +24,7 @@ class Item < ApplicationRecord
     validates :shipping_day_id
   end
 
-  validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
+  validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'が適切な数値ではありません' }
 
   def was_attached?
     image.attached?

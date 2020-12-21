@@ -5,7 +5,7 @@ describe Item do
     @item = FactoryBot.build(:item)
   end
 
-  describe 'ユーザー新規登録' do
+  describe '商品新規登録' do
     context '新規登録がうまくいくとき' do
       it '正常に記入すると新規登録できる' do
         expect(@item).to be_valid
